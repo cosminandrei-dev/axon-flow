@@ -1,0 +1,13 @@
+{
+  "name": "web",
+  "version": "0.0.0",
+  "type": "module",
+  "private": true,
+  "scripts": {
+    "dev": "echo 'Next.js app - run: next dev'",
+    "build": "echo 'Next.js app - run: next build'",
+    "lint": "eslint .",
+    "test": "echo 'No test step yet'",
+    "typecheck": "tsc --noEmit"
+  }
+}
