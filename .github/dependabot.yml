@@ -1,0 +1,103 @@
+version: 2
+updates:
+  # GitHub Actions dependencies
+  - package-ecosystem: "github-actions"
+    directory: "/"
+    schedule:
+      interval: "weekly"
+      day: "monday"
+      time: "09:00"
+      timezone: "UTC"
+    commit-message:
+      prefix: "ci"
+    labels:
+      - "dependencies"
+      - "github-actions"
+    open-pull-requests-limit: 5
+
+  # npm dependencies (root and all workspaces)
+  - package-ecosystem: "npm"
+    directory: "/"
+    schedule:
+      interval: "weekly"
+      day: "monday"
+      time: "09:00"
+      timezone: "UTC"
+    commit-message:
+      prefix: "deps"
+    labels:
+      - "dependencies"
+      - "npm"
+    open-pull-requests-limit: 10
+    groups:
+      # TypeScript tooling
+      typescript:
+        patterns:
+          - "typescript*"
+          - "@typescript-eslint/*"
+        update-types:
+          - "minor"
+          - "patch"
+
+      # Testing frameworks
+      testing:
+        patterns:
+          - "vitest*"
+          - "@vitest/*"
+          - "@testing-library/*"
+          - "supertest*"
+        update-types:
+          - "minor"
+          - "patch"
+
+      # ESLint plugins
+      eslint:
+        patterns:
+          - "eslint*"
+          - "@eslint/*"
+          - "eslint-plugin-*"
+        update-types:
+          - "minor"
+          - "patch"
+
+      # NestJS framework
+      nestjs:
+        patterns:
+          - "@nestjs/*"
+        update-types:
+          - "minor"
+          - "patch"
+
+      # GraphQL related
+      graphql:
+        patterns:
+          - "graphql*"
+          - "@apollo/*"
+          - "@as-integrations/*"
+        update-types:
+          - "minor"
+          - "patch"
+
+      # Build tools
+      build:
+        patterns:
+          - "turbo*"
+          - "tsx*"
+        update-types:
+          - "minor"
+          - "patch"
+
+  # Docker dependencies (docker-compose services)
+  - package-ecosystem: "docker-compose"
+    directory: "/docker"
+    schedule:
+      interval: "weekly"
+      day: "monday"
+      time: "09:00"
+      timezone: "UTC"
+    commit-message:
+      prefix: "docker"
+    labels:
+      - "dependencies"
+      - "docker"
+    open-pull-requests-limit: 3

@@ -4,13 +4,20 @@ Hub-centric AI automation platform that transforms natural-language goals into r
 
 ## Current Status
 
-> **🚧 Foundation Phase (Epic 0)** - This branch contains the monorepo scaffolding only. Apps and packages have placeholder scripts that will be replaced with actual implementations in subsequent stories (0-2 through 0-9).
+> **🚧 Foundation Phase (Epic 0)** - Core infrastructure established. Authentication module in review, API gateway ready for development.
 
 **Completed:**
-- [x] Story 0-1: Turborepo monorepo structure with 13 workspaces
-- [ ] Story 0-2: Shared TypeScript and ESLint configuration
-- [ ] Story 0-3: Docker Compose development stack
-- [ ] Story 0-4 - 0-9: Remaining foundation packages
+- [x] Story 0-1: Turborepo monorepo structure (15 workspaces)
+- [x] Story 0-2: Shared TypeScript and ESLint configuration
+- [x] Story 0-3: Docker Compose development stack (PostgreSQL, Redis, RabbitMQ)
+- [x] Story 0-4: Database package with Drizzle ORM and core schema
+
+**In Progress:**
+- [ ] Story 0-5: Auth package with Auth.js integration (in review)
+- [ ] Story 0-6: NestJS API Gateway skeleton (ready for dev)
+- [ ] Story 0-7: GitHub Actions CI pipeline
+- [ ] Story 0-8: Observability package
+- [ ] Story 0-9: Dashboard shell (Next.js)
 
 ## Quick Start
 
@@ -66,7 +73,7 @@ axon-flow/
 │   └── billing/       # Stripe integration
 ├── services/
 │   └── agent-runtime/ # Agent container runtime
-├── tooling/           # Shared configs (not a workspace)
+├── tooling/           # Shared configs (@repo/eslint-config, @repo/typescript-config)
 └── docker/            # Docker Compose files
 ```
 

@@ -1,0 +1,10 @@
+{
+  "extends": "../../typescript/base.json",
+  "compilerOptions": {
+    "outDir": "./dist",
+    "rootDir": "./",
+    "types": ["node", "vitest/globals"]
+  },
+  "include": ["*.ts", "__tests__/**/*.ts"],
+  "exclude": ["node_modules", "dist"]
+}
