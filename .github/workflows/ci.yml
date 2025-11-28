@@ -174,15 +174,29 @@ jobs:
         run: pnpm db:migrate
         continue-on-error: false
 
-      - name: Run tests
-        run: pnpm test
+      - name: Run tests with coverage
+        run: pnpm test -- --coverage
         continue-on-error: false
+
+      - name: Upload coverage reports to Codecov
+        uses: codecov/codecov-action@v5
+        with:
+          token: ${{ secrets.CODECOV_TOKEN }}
+          files: ./coverage/coverage-final.json,./packages/*/coverage/coverage-final.json
+          flags: unittests
+          fail_ci_if_error: false
+          verbose: true
 
       - name: Add test results to summary
         if: always()
         run: |
           echo "## Test Results" >> $GITHUB_STEP_SUMMARY
-          echo "Tests completed. Check the logs above for details." >> $GITHUB_STEP_SUMMARY
+          echo "Tests completed with coverage. Check the logs above for details." >> $GITHUB_STEP_SUMMARY
+          if [ -d "coverage" ]; then
+            echo "" >> $GITHUB_STEP_SUMMARY
+            echo "### Coverage Summary" >> $GITHUB_STEP_SUMMARY
+            echo "Coverage reports have been uploaded to Codecov." >> $GITHUB_STEP_SUMMARY
+          fi
 
   build:
     name: Build

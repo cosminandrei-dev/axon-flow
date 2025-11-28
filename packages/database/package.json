@@ -19,7 +19,9 @@
     "build": "tsup",
     "dev": "tsup --watch",
     "lint": "eslint .",
-    "test": "echo 'No test step yet'",
+    "test": "vitest run --exclude='**/*.integration.spec.ts' --passWithNoTests",
+    "test:watch": "vitest --exclude='**/*.integration.spec.ts'",
+    "test:integration": "vitest run --testNamePattern='RLS'",
     "typecheck": "tsc --noEmit",
     "db:generate": "drizzle-kit generate",
     "db:migrate": "drizzle-kit migrate",
@@ -30,8 +32,9 @@
     "postgres": "^3.4.0"
   },
   "devDependencies": {
+    "@types/node": "^24.0.0",
     "drizzle-kit": "^0.31.0",
     "tsup": "^8.3.0",
-    "@types/node": "^24.0.0"
+    "vitest": "^2.0.0"
   }
 }
