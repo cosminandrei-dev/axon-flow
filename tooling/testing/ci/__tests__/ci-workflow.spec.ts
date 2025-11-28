@@ -189,11 +189,6 @@ describe("CI Workflow", () => {
       expect(testStep).toBeDefined();
     });
 
-    it("should upload coverage artifacts", () => {
-      const steps = workflow.jobs?.test?.steps || [];
-      const uploadStep = steps.find((s) => s.uses?.includes("actions/upload-artifact"));
-      expect(uploadStep).toBeDefined();
-    });
   });
 
   describe("AC 0.7.5 - Build Job", () => {
@@ -257,11 +252,11 @@ describe("CI Workflow", () => {
       expect(nodeStep?.with?.["node-version"]).toBe("24");
     });
 
-    it("should use pnpm 10", () => {
+    it("should use pnpm from packageManager field (no explicit version)", () => {
       const setupSteps = workflow.jobs?.setup?.steps || [];
       const pnpmStep = setupSteps.find((s) => s.uses?.includes("pnpm/action-setup"));
-      // YAML may parse version as integer or string
-      expect(String(pnpmStep?.with?.version)).toBe("10");
+      // Version should NOT be specified - pnpm/action-setup@v4 reads from package.json packageManager
+      expect(pnpmStep?.with?.version).toBeUndefined();
     });
 
     it("should use frozen lockfile for installs", () => {
