@@ -35,7 +35,7 @@ export function Header({ sidebarCollapsed, onMenuClick }: HeaderProps) {
         <Button
           variant="ghost"
           size="icon"
-          className="h-10 w-10 lg:hidden"
+          className="h-11 w-11 lg:hidden"
           onClick={onMenuClick}
           aria-label="Toggle menu"
         >
@@ -75,7 +75,7 @@ export function Header({ sidebarCollapsed, onMenuClick }: HeaderProps) {
         <Button
           variant="ghost"
           size="icon"
-          className="h-10 w-10 md:hidden"
+          className="h-11 w-11 md:hidden"
           aria-label="Search"
         >
           <Search className="h-5 w-5" />
@@ -84,7 +84,7 @@ export function Header({ sidebarCollapsed, onMenuClick }: HeaderProps) {
         <Button
           variant="ghost"
           size="icon"
-          className="h-10 w-10 text-text-secondary hover:text-text-primary"
+          className="h-11 w-11 text-text-secondary hover:text-text-primary"
           aria-label="Help"
         >
           <HelpCircle className="h-5 w-5" />
@@ -93,7 +93,7 @@ export function Header({ sidebarCollapsed, onMenuClick }: HeaderProps) {
         <Button
           variant="ghost"
           size="icon"
-          className="h-10 w-10 text-text-secondary hover:text-text-primary"
+          className="h-11 w-11 text-text-secondary hover:text-text-primary"
           aria-label="Notifications"
         >
           <Bell className="h-5 w-5" />
@@ -104,7 +104,7 @@ export function Header({ sidebarCollapsed, onMenuClick }: HeaderProps) {
           <DropdownMenuTrigger asChild>
             <Button
               variant="ghost"
-              className="relative h-10 w-10 rounded-full p-0"
+              className="relative h-11 w-11 rounded-full p-0"
             >
               <Avatar className="h-8 w-8">
                 <AvatarImage src="/avatars/user.png" alt="User" />

@@ -14,6 +14,10 @@ interface PageTransitionProps {
  *
  * Wraps page content with smooth fade and slide animations during route changes.
  * Respects prefers-reduced-motion via CSS (see globals.css).
+ *
+ * NOTE: Currently not integrated into layouts. The Shell component handles
+ * layout transitions via CSS (transition-all duration-300). This component
+ * is available for future use when more complex route animations are needed.
  */
 export function PageTransition({ children }: PageTransitionProps) {
   const pathname = usePathname();
