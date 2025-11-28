@@ -7,6 +7,7 @@ import { GraphQLModule } from "@nestjs/graphql";
 import { ThrottlerModule } from "@nestjs/throttler";
 import type { Request, Response } from "express";
 import depthLimit from "graphql-depth-limit";
+import { DateTimeResolver } from "graphql-scalars";
 
 import { CustomThrottlerGuard } from "./common/guards/throttler.guard";
 import { createComplexityPlugin } from "./graphql/plugins";
@@ -31,6 +32,9 @@ const MAX_QUERY_COMPLEXITY = 1000;
     GraphQLModule.forRoot<ApolloDriverConfig>({
       driver: ApolloDriver,
       typePaths: ["./**/*.graphql"],
+      resolvers: {
+        DateTime: DateTimeResolver,
+      },
       definitions: {
         path: join(process.cwd(), "src/graphql/generated/graphql.ts"),
         outputAs: "interface",
