@@ -174,18 +174,9 @@ jobs:
         run: pnpm db:migrate
         continue-on-error: false
 
-      - name: Run tests with coverage
-        run: pnpm test -- --coverage
+      - name: Run tests
+        run: pnpm test
         continue-on-error: false
-
-      - name: Upload coverage reports
-        uses: actions/upload-artifact@v4
-        if: always()
-        with:
-          name: coverage
-          path: |
-            **/coverage/
-          retention-days: 30
 
       - name: Add test results to summary
         if: always()
