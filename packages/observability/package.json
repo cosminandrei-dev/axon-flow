@@ -42,7 +42,7 @@
     "@opentelemetry/exporter-trace-otlp-http": "^0.200.0",
     "@opentelemetry/instrumentation-http": "^0.200.0",
     "@opentelemetry/instrumentation-pg": "^0.51.0",
-    "@opentelemetry/instrumentation-graphql": "^0.46.0",
+    "@opentelemetry/instrumentation-graphql": "^0.56.0",
     "@opentelemetry/resources": "^2.0.0",
     "@opentelemetry/semantic-conventions": "^1.32.0",
     "prom-client": "^15.1.3"
