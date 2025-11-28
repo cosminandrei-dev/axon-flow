@@ -33,7 +33,7 @@
   },
   "dependencies": {
     "jose": "^5.0.0",
-    "@auth/core": "^0.37.0",
+    "@auth/core": "^0.41.1",
     "@auth/drizzle-adapter": "^1.7.4"
   },
   "peerDependencies": {
