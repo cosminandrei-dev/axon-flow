@@ -1,4 +1,6 @@
-import { Controller, Get } from "@nestjs/common";
+import { Controller, Get, Res } from "@nestjs/common";
+import type { Response } from "express";
+import { getMetrics, getMetricsContentType } from "@repo/observability";
 
 import { HealthService } from "./health.service";
 
@@ -8,11 +10,11 @@ interface HealthResponse {
   version: string;
 }
 
-@Controller("health")
+@Controller()
 export class HealthController {
   constructor(private readonly healthService: HealthService) {}
 
-  @Get()
+  @Get("health")
   check(): HealthResponse {
     const healthStatus = this.healthService.getHealthStatus();
     return {
@@ -20,5 +22,11 @@ export class HealthController {
       timestamp: healthStatus.timestamp.toISOString(),
       version: healthStatus.version,
     };
+  }
+
+  @Get("metrics")
+  async getMetricsEndpoint(@Res() res: Response): Promise<void> {
+    res.set("Content-Type", getMetricsContentType());
+    res.send(await getMetrics());
   }
 }
