@@ -1,0 +1,7 @@
+{
+  "name": "@apollo/server-plugin-landing-page-graphql-playground",
+  "version": "4.0.1",
+  "description": "Stub package - GraphQL Playground is deprecated, use Apollo Sandbox instead",
+  "main": "index.js",
+  "types": "index.d.ts"
+}

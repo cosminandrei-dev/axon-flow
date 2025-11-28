@@ -1,0 +1,20 @@
+{
+  "name": "@repo/ci-testing",
+  "version": "0.0.1",
+  "private": true,
+  "type": "module",
+  "description": "CI workflow validation and testing utilities",
+  "scripts": {
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "typecheck": "tsc --noEmit",
+    "validate": "tsx workflow-validator.ts"
+  },
+  "devDependencies": {
+    "@types/node": "^22.15.8",
+    "tsx": "^4.19.0",
+    "typescript": "^5.6.0",
+    "vitest": "^3.2.1",
+    "yaml": "^2.7.0"
+  }
+}

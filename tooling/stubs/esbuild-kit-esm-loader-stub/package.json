@@ -1,0 +1,13 @@
+{
+  "name": "@esbuild-kit/esm-loader",
+  "version": "2.6.5",
+  "description": "Stub - @esbuild-kit/esm-loader is deprecated and merged into tsx",
+  "main": "index.js",
+  "type": "module",
+  "exports": {
+    ".": "./index.js"
+  },
+  "dependencies": {
+    "tsx": "^4.19.0"
+  }
+}
