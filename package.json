@@ -9,7 +9,14 @@
     "build": "turbo build",
     "lint": "turbo lint",
     "typecheck": "turbo typecheck",
-    "test": "turbo test"
+    "test": "turbo test",
+    "docker:up": "docker compose -f docker/docker-compose.yml --env-file docker/.env.local up -d",
+    "docker:down": "docker compose -f docker/docker-compose.yml down",
+    "docker:reset": "docker compose -f docker/docker-compose.yml down -v && docker compose -f docker/docker-compose.yml --env-file docker/.env.local up -d",
+    "docker:logs": "docker compose -f docker/docker-compose.yml logs -f",
+    "db:generate": "pnpm --filter @repo/database db:generate",
+    "db:migrate": "pnpm --filter @repo/database db:migrate",
+    "db:studio": "pnpm --filter @repo/database db:studio"
   },
   "devDependencies": {
     "@eslint/js": "^9.39.1",

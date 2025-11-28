@@ -3,4 +3,5 @@
  * @package @repo/database
  */
 
-export {};
+export { db } from './client.js';
+export * from './schema/index.js';

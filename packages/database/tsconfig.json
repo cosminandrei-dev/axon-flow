@@ -2,12 +2,12 @@
   "extends": "../../tooling/typescript/library.json",
   "compilerOptions": {
     "outDir": "./dist",
-    "rootDir": "./src",
+    "rootDir": ".",
     "baseUrl": ".",
     "paths": {
       "@repo/*": ["../../packages/*/src"]
     }
   },
-  "include": ["src/**/*"],
+  "include": ["src/**/*", "*.config.ts", "__tests__/**/*"],
   "exclude": ["node_modules", "dist"]
 }
