@@ -52,7 +52,7 @@ interface CIWorkflow {
   jobs?: Record<string, WorkflowJob>;
 }
 
-const PROJECT_ROOT = resolve(__dirname, "../../../..");
+const PROJECT_ROOT = resolve(import.meta.dirname, "../../../..");
 const WORKFLOW_PATH = resolve(PROJECT_ROOT, ".github/workflows/ci.yml");
 
 let workflow: CIWorkflow;

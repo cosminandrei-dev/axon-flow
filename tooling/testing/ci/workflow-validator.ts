@@ -265,7 +265,7 @@ function validateParallelExecution(workflow: CIWorkflow): ValidationResult {
 }
 
 function main(): void {
-  const projectRoot = resolve(__dirname, "../../..");
+  const projectRoot = resolve(import.meta.dirname, "../../..");
   const workflowPath = resolve(projectRoot, ".github/workflows/ci.yml");
 
   console.log("CI Workflow Validator");
