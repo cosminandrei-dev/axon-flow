@@ -1,0 +1,7 @@
+{
+  "name": "lodash.get",
+  "version": "4.4.2",
+  "description": "Stub using native JS - lodash.get is deprecated, use optional chaining instead",
+  "main": "index.js",
+  "types": "index.d.ts"
+}

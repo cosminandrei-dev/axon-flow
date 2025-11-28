@@ -1,0 +1,7 @@
+{
+  "name": "subscriptions-transport-ws",
+  "version": "0.11.0",
+  "description": "Stub - subscriptions-transport-ws is deprecated, use graphql-ws instead",
+  "main": "index.js",
+  "types": "index.d.ts"
+}

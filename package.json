@@ -30,11 +30,27 @@
     "eslint-plugin-react": "^7.37.5",
     "eslint-plugin-react-hooks": "^7.0.1",
     "globals": "^16.5.0",
-    "turbo": "^2.6.0",
-    "typescript": "^5.6.0"
+    "tsx": "^4.20.6",
+    "turbo": "^2.6.1",
+    "typescript": "^5.9.3"
   },
   "engines": {
     "node": ">=24.0.0",
     "pnpm": ">=10.0.0"
+  },
+  "pnpm": {
+    "overrides": {
+      "@apollo/server-plugin-landing-page-graphql-playground": "link:./tooling/stubs/apollo-playground-stub",
+      "lodash.omit": "link:./tooling/stubs/lodash-omit-stub",
+      "lodash.get": "link:./tooling/stubs/lodash-get-stub",
+      "subscriptions-transport-ws": "link:./tooling/stubs/subscriptions-transport-ws-stub",
+      "@esbuild-kit/esm-loader": "link:./tooling/stubs/esbuild-kit-esm-loader-stub",
+      "@esbuild-kit/core-utils": "link:./tooling/stubs/esbuild-kit-core-utils-stub"
+    },
+    "peerDependencyRules": {
+      "allowedVersions": {
+        "@apollo/server-plugin-landing-page-graphql-playground>@apollo/server": "5"
+      }
+    }
   }
 }

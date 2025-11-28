@@ -1,5 +1,9 @@
 import { join } from "path";
 
+import {
+  ApolloServerPluginLandingPageLocalDefault,
+  ApolloServerPluginLandingPageProductionDefault,
+} from "@apollo/server/plugin/landingPage/default";
 import { ApolloDriver, ApolloDriverConfig } from "@nestjs/apollo";
 import { Module } from "@nestjs/common";
 import { APP_GUARD } from "@nestjs/core";
@@ -39,13 +43,20 @@ const MAX_QUERY_COMPLEXITY = 1000;
         path: join(process.cwd(), "src/graphql/generated/graphql.ts"),
         outputAs: "interface",
       },
-      playground: process.env.NODE_ENV !== "production",
+      // Use Apollo Sandbox (modern replacement for deprecated GraphQL Playground)
+      playground: false,
       introspection: process.env.NODE_ENV !== "production",
       context: ({ req, res }: { req: Request; res: Response }) => ({ req, res }),
       // Security: Query depth limiting (prevents deeply nested queries)
       validationRules: [depthLimit(MAX_QUERY_DEPTH)],
       // Security: Query complexity limiting (prevents expensive queries)
-      plugins: [createComplexityPlugin({ maxComplexity: MAX_QUERY_COMPLEXITY })],
+      plugins: [
+        createComplexityPlugin({ maxComplexity: MAX_QUERY_COMPLEXITY }),
+        // Apollo Sandbox for development, disabled in production
+        process.env.NODE_ENV !== "production"
+          ? ApolloServerPluginLandingPageLocalDefault({ footer: false })
+          : ApolloServerPluginLandingPageProductionDefault({ footer: false }),
+      ],
       includeStacktraceInErrorResponses: process.env.NODE_ENV !== "production",
     }),
 
