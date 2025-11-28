@@ -1,0 +1,111 @@
+@import 'tailwindcss';
+
+/* ==========================================================================
+   Obsidian Coral Theme - Design Tokens
+   Source: docs/ux-design.md
+   ========================================================================== */
+
+@theme {
+  /* Background Colors */
+  --color-background-primary: #0a0a0a;
+  --color-background-secondary: #101114;
+  --color-background-tertiary: #14171d;
+  --color-background-elevated: #1a1f2a;
+
+  /* Border Colors */
+  --color-border: #262a35;
+
+  /* Accent Colors - 3-tier system */
+  --color-accent-primary: #ff6b4a;
+  --color-accent-primary-hover: #ff8a5f;
+  --color-accent-secondary: #4de5d3;
+  --color-accent-tertiary: #7c7bff;
+
+  /* Text Colors */
+  --color-text-primary: #e8edf7;
+  --color-text-secondary: #9aa6c2;
+  --color-text-tertiary: #666666;
+
+  /* Semantic Colors */
+  --color-semantic-success: #5ce3a0;
+  --color-semantic-warning: #f5d565;
+  --color-semantic-error: #ff5573;
+  --color-semantic-info: #7fb0ff;
+
+  /* Ring Color for Focus States */
+  --color-ring: #ff6b4a;
+
+  /* Typography */
+  --font-sans: 'Inter', system-ui, sans-serif;
+  --font-mono: 'JetBrains Mono', 'Fira Code', monospace;
+
+  /* Spacing Scale (4px base) */
+  --spacing-0\.5: 0.125rem;
+  --spacing-1: 0.25rem;
+  --spacing-2: 0.5rem;
+  --spacing-3: 0.75rem;
+  --spacing-4: 1rem;
+  --spacing-5: 1.25rem;
+  --spacing-6: 1.5rem;
+  --spacing-8: 2rem;
+  --spacing-10: 2.5rem;
+  --spacing-12: 3rem;
+  --spacing-16: 4rem;
+  --spacing-20: 5rem;
+
+  /* Transition Durations */
+  --transition-fast: 150ms;
+  --transition-normal: 300ms;
+  --transition-slow: 500ms;
+
+  /* Border Radius */
+  --radius-sm: 0.25rem;
+  --radius-md: 0.375rem;
+  --radius-lg: 0.5rem;
+  --radius-xl: 0.75rem;
+  --radius-2xl: 1rem;
+  --radius-full: 9999px;
+}
+
+/* ==========================================================================
+   Base Styles
+   ========================================================================== */
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  html {
+    @apply scroll-smooth;
+  }
+
+  body {
+    @apply bg-background-primary text-text-primary font-sans antialiased;
+  }
+
+  /* Focus visible styles with coral ring */
+  :focus-visible {
+    @apply outline-none ring-2 ring-ring ring-offset-2 ring-offset-background-primary;
+  }
+
+  /* Selection highlight */
+  ::selection {
+    @apply bg-accent-primary/30 text-text-primary;
+  }
+}
+
+/* ==========================================================================
+   Reduced Motion Support
+   ========================================================================== */
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}

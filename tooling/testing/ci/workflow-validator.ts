@@ -9,6 +9,7 @@
 
 import { readFileSync, existsSync } from "node:fs";
 import { resolve } from "node:path";
+
 import { parse } from "yaml";
 
 interface WorkflowJob {
